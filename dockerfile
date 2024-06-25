@@ -8,3 +8,5 @@ RUN apt install -y nodejs
 RUN pipx install awscli
 RUN pipx install aws-sam-cli
 RUN apt clean && apt autoclean
+
+ENV PATH="~/.local/bin:${PATH}"
