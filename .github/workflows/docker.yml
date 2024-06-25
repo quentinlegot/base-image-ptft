@@ -19,7 +19,7 @@ jobs:
           export CR_PAT=$TOKEN
           echo $CR_PAT | docker login -u quentinlegot --password-stdin
         env:
-          TOKEN: ${{ secrets.DOCKER_TOKEN }}
+          TOKEN: ${{ github.token }}
       - name: "Compile and push"
         run: |
           docker build -t quentinlegot/base-image-ptft:latest .
