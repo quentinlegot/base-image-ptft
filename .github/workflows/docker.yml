@@ -17,13 +17,13 @@ jobs:
       - name: "Login to registry"
         run: |
           export CR_PAT=$TOKEN
-          echo $CR_PAT | docker login -u quentinlegot --password-stdin
+          echo $CR_PAT | docker login ghcr.io -u quentinlegot --password-stdin
         env:
-          TOKEN: ${{ secrets.DOCKER_TOKEN }}
+          TOKEN: ${{ github.token }}
       - name: "Compile and push"
         run: |
-          docker build -t quentinlegot/base-image-ptft:latest .
-          docker push quentinlegot/base-image-ptft:latest
+          docker build -t ghcr.io/quentinlegot/base-image-ptft:latest .
+          docker push ghcr.io/quentinlegot/base-image-ptft:latest
       
   
           
